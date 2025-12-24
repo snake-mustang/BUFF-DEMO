@@ -4,6 +4,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/BUFF/',  // 设置基础路径为 /BUFF/
   plugins: [react()],
   resolve: {
     alias: {
