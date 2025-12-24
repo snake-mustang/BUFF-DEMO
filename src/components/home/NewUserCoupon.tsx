@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { X, Gift, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 
 export function NewUserCoupon() {
   const [isVisible, setIsVisible] = useState(false)

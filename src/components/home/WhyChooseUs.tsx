@@ -1,4 +1,4 @@
-import { Shield, Users, Percent, Zap, Clock, Headphones } from 'lucide-react'
+import { Users, Percent, Zap } from 'lucide-react'
 
 const features = [
   {
