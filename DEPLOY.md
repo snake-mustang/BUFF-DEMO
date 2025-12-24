@@ -12,6 +12,10 @@ npm run build
 
 项目配置了基础路径为 `/BUFF/`，适用于部署在子目录的场景。
 
+**⚠️ 重要：需要同时配置 Vite 和 React Router**
+
+#### 1. Vite 配置（处理静态资源路径）
+
 在 `vite.config.ts` 中配置：
 
 ```typescript
@@ -20,6 +24,26 @@ export default defineConfig({
   // ... 其他配置
 })
 ```
+
+这个配置会让所有静态资源（JS、CSS、图片等）自动加上 `/BUFF/` 前缀。
+
+#### 2. React Router 配置（处理路由跳转）
+
+在 `src/main.tsx` 中配置：
+
+```typescript
+<BrowserRouter basename="/BUFF">
+  <App />
+</BrowserRouter>
+```
+
+这个配置会让所有路由跳转都基于 `/BUFF` 路径。
+
+**两者的区别：**
+- `vite.config.ts` 的 `base`: 影响打包后的**静态资源路径**（HTML 中的 script、link 等标签）
+- `BrowserRouter` 的 `basename`: 影响**运行时的路由导航**（Link 组件、useNavigate 等）
+
+**必须同时配置这两个才能让应用在子目录下正常工作！**
 
 ### 部署目录结构
 
